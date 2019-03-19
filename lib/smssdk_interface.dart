@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 class Smssdk {
 
-  static const MethodChannel _channel = const MethodChannel('com.yoozoo.com/smmsdk');
+  static const MethodChannel _channel = const MethodChannel('com.yoozoo.com/smssdk');
 
   static Future getTextCode(String phoneNumber,String zone,String tempCode, Function(dynamic ret,Map err)result) {
 
