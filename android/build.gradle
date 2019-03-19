@@ -20,6 +20,8 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
+// 导入MobSDK
+apply plugin: 'com.mob.sdk'
 
 android {
     compileSdkVersion 28
@@ -31,4 +33,9 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+}
+
+// 导入SMSSDK
+MobSDK {
+    SMSSDK {}
 }
