@@ -9,7 +9,7 @@ static FlutterMethodChannel* channel = nil;
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   channel = [FlutterMethodChannel
-      methodChannelWithName:@"com.yoozoo.com/smssdk"
+      methodChannelWithName:@"com.yoozoo.mob/smssdk"
             binaryMessenger:[registrar messenger]];
   SmssdkPlugin* instance = [[SmssdkPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
