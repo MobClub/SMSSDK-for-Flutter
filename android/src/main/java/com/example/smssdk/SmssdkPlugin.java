@@ -19,7 +19,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 /** SmssdkPlugin */
 public class SmssdkPlugin implements MethodCallHandler {
 	private static final String TAG = "SmssdkPlugin";
-	public static final String CHANNEL = "com.yoozoo.com/smssdk";
+	public static final String CHANNEL = "com.mob.smssdk";
 	private static final String KEY_CODE = "code";
 	private static final String KEY_MSG = "msg";
 	private static final int BRIDGE_ERR = 700;

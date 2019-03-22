@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:smssdk/smssdk.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('com.yoozoo.com/smmsdk');
+  const MethodChannel channel = MethodChannel('com.mob.smssdk');
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
