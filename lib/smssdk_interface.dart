@@ -30,9 +30,9 @@ class Smssdk {
     return callback;
   }
 
-  static Future getVoiceCode(String phoneNumber,String zone,String tempCode, Function(dynamic ret,Map err)result) {
+  static Future getVoiceCode(String phoneNumber,String zone, Function(dynamic ret,Map err)result) {
 
-    Map args = {"phoneNumber": phoneNumber, "zone":zone, "tempCode":tempCode};
+    Map args = {"phoneNumber": phoneNumber, "zone":zone};
 
   	Future<dynamic> callback = _channel.invokeMethod('getVoiceCode', args);
 
@@ -122,10 +122,16 @@ class Smssdk {
   }
 
 
-  static Future submitUserInfo(Map userInfo,Function(dynamic ret,Map err)result) {
+  static Future submitUserInfo(String uid, String nickname, String avatar, String zone, String phoneNumber,Function(dynamic ret,Map err)result) {
+    Map userInfo = {
+      "country":zone,
+      "phone":phoneNumber,
+      "uid":uid,
+      "nickname": nickname,
+      "avatar":avatar
+    };
 
-
-  	Future<dynamic> callback = _channel.invokeMethod('submitUserInfo');
+  	Future<dynamic> callback = _channel.invokeMethod('submitUserInfo', userInfo);
 
     callback.then((dynamic response){
       if(result != null)

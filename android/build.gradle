@@ -1,4 +1,4 @@
-group 'com.example.smssdk'
+group 'cn.smssdk.flutter'
 version '1.0-SNAPSHOT'
 
 buildscript {

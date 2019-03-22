@@ -108,7 +108,11 @@ var codeController = new TextEditingController();
                   }
                   else
                   {
-                    showAlert('获取验证码成功!',context);
+                    String rst = ret.toString();
+                    if (rst == null || rst == "") {
+                      rst = '获取验证码成功!';
+                    }
+                    showAlert(rst,context);
                   }
                 });
                 
@@ -122,7 +126,7 @@ var codeController = new TextEditingController();
             textColor: Colors.white,
             child: new Text('请求语音验证码'),
             onPressed: (){
-                 Smssdk.getVoiceCode(phoneController.text, zoneController.text, tempIDController.text, (dynamic ret, Map err){
+                 Smssdk.getVoiceCode(phoneController.text, zoneController.text, (dynamic ret, Map err){
                   if(err!=null)
                   {
                     showAlert(err.toString(),context);
@@ -210,15 +214,9 @@ var codeController = new TextEditingController();
             textColor: Colors.white,
             child: new Text('提交用户信息'),
             onPressed: (){
-                Map userInfo = {
-                  "country":zoneController.text,
-                  "phone":phoneController.text,
-                  "uid":"3241241",
-                  "nickname": "SmsSDK_Flutter_User_3241241",
-                  "avatar":"http://download.sdk.mob.com/510/deb/0c0731ac543eb71311c482a2e2.png",
-                  };
-
-                Smssdk.submitUserInfo(userInfo,(dynamic ret, Map err){
+                Smssdk.submitUserInfo("3241241", "SmsSDK_Flutter_User_3241241",
+                    "http://download.sdk.mob.com/510/deb/0c0731ac543eb71311c482a2e2.png",
+                    zoneController.text, phoneController.text, (dynamic ret, Map err){
                   if(err!=null)
                   {
                     showAlert(err.toString(),context);
