@@ -9,7 +9,7 @@ static FlutterMethodChannel* channel = nil;
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   channel = [FlutterMethodChannel
-      methodChannelWithName:@"com.yoozoo.com/smmsdk"
+      methodChannelWithName:@"com.mob.smssdk"
             binaryMessenger:[registrar messenger]];
   SmssdkPlugin* instance = [[SmssdkPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
@@ -100,7 +100,11 @@ static FlutterMethodChannel* channel = nil;
           {
               NSMutableDictionary *dict = [NSMutableDictionary new];
               dict[@"err"] = [SmssdkPlugin errorToUZDict:error];
-              dict[@"ret"] = zonesArray;
+
+              if(zonesArray)
+              {
+                dict[@"ret"] = @{@"countries":zonesArray};
+              }
 
               result(dict);
           }
@@ -115,7 +119,9 @@ static FlutterMethodChannel* channel = nil;
           {
               NSMutableDictionary *dict = [NSMutableDictionary new];
               dict[@"err"] = [SmssdkPlugin errorToUZDict:error];
-              dict[@"ret"] = friendsArray;
+
+              if(friendsArray)
+                dict[@"ret"] = @{@"friends":friendsArray};
               
               result(dict);
           }

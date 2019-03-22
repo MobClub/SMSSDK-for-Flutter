@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:smssdk/smssdk.dart' ;
@@ -239,6 +238,8 @@ var codeController = new TextEditingController();
             textColor: Colors.white,
             child: new Text('获取版本号'),
             onPressed: (){
+
+              print("go go");
               Smssdk.getVersion((dynamic ret, Map err){
                   if(err!=null)
                   {
