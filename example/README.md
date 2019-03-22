@@ -1,16 +1,131 @@
 # smssdk_example
 
-Demonstrates how to use the smssdk plugin.
+**supported original MobLink minimum version:**
+
+-  <font color=#00B2EE>iOS</font> - v3.0.0
+-  <font color=#00B2EE>Android</font> - v3.0.0
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+-  import library
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+```
+import 'package:smssdk/smssdk.dart';
+```
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+-  getTextCode
+
+```
+Smssdk.getTextCode("手机号","区号(中国填写86)","模板id", (dynamic ret, Map err){
+   if(err!=null){
+   
+   }
+   else
+   {
+                    
+   }
+});
+```
+
+-  getVoiceCode
+
+```
+Smssdk.getVoiceCode("手机号","区号(中国填写86)","模板id", (dynamic ret, Map err){
+    if(err!=null)
+    {
+    }
+    else
+    {
+                    
+    }
+});
+```
+
+
+-  commitCode
+
+```
+Smssdk.commitCode("手机号","区号(中国填写86)","验证码", (dynamic ret, Map err){
+   if(err!=null)
+   {
+   }
+   else
+   {
+                    
+   }
+});
+```
+
+-  getSupportedCountries
+
+```
+Smssdk.getSupportedCountries((dynamic ret, Map err){
+   if(err!=null)
+   {
+   }
+   else
+   {
+   }
+});
+```
+
+-  getFriends
+
+```
+Smssdk.getFriends((dynamic ret, Map err){
+   if(err!=null)
+   {
+   }
+   else
+   {
+   }
+});
+```
+
+-  submitUserInfo
+
+```
+Map userInfo = {
+                  "country":"区号",
+                  "phone":"您的手机号",
+                  "uid":"用户id",
+                  "nickname": "昵称",
+                  "avatar":"http://download.sdk.mob.com/510/deb/0c0731ac543eb71311c482a2e2.png",
+                  };
+Smssdk.submitUserInfo(userInfo,(dynamic ret, Map err){
+   if(err!=null)
+   {
+   }
+   else
+   {
+   }
+});
+```
+
+-  getVersion
+
+```
+
+Smssdk.getVersion((dynamic ret, Map err){
+   if(err!=null)
+   {
+   }
+   else
+   {
+   }
+});
+```
+
+-  enableWarn
+
+```
+Smssdk.enableWarn(true,(dynamic ret, Map err){
+   if(err!=null)
+   {
+   }
+   else
+   {
+   }
+});
+```

@@ -1,14 +1,15 @@
-# smssdk
+# smssdk for Flutter
 
-A new flutter plugin project.
+为开发者提供全球通用的短信验证码工具，开发者可以用其在App植入短信验证码SDK、简单设置即可短信验证，集成快速便捷，且后期易于管理
 
-## Getting Started
+## 开始
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+1.Flutter集成文档 [SMSSDK-For-Flutter 在线文档](https://pub.dartlang.org/packages/smssdk#-installing-tab-)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+2.iOS平台配置参考 [iOS集成文档](http://wiki.mob.com/快速集成-11/)
+
+- 实现 "一、注册应用获取appKey 和 appSecret"
+- 实现 "三、配置appkey和appSecret"
+
+3.Android平台配置参考 [Android集成文档](http://wiki.mob.com/sdk-sms-android-3-0-0/)
+

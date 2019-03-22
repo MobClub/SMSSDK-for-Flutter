@@ -52,5 +52,10 @@
 	</dict>
 	<key>NSContactsUsageDescription</key>
 	<string>获取联系人</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>zh</string>
+		<string>en</string>
+	</array>
 </dict>
 </plist>

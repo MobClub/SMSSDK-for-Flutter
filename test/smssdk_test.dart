@@ -16,6 +16,5 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await Smssdk.platformVersion, '42');
   });
 }
