@@ -1,4 +1,4 @@
-package com.example.smssdk;
+package cn.smssdk.flutter;
 
 import android.util.Log;
 

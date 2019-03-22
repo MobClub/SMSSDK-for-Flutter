@@ -34,7 +34,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.smssdk_example"
+        applicationId "cn.smssdk.demo"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()

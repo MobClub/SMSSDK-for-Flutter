@@ -1,10 +1,10 @@
-package com.example.smssdk_example;
+package cn.smssdk.demo;
 
 import android.os.Bundle;
 
-import com.example.smssdk.SmssdkPlugin;
 import com.mob.MobSDK;
 
+import cn.smssdk.flutter.SmssdkPlugin;
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
