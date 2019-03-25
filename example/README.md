@@ -1,6 +1,6 @@
 # smssdk_example
 
-**supported original MobLink minimum version:**
+**supported original mob_smssdk minimum version:**
 
 -  iOS - v3.0.0
 -  Android - v3.0.0
@@ -11,7 +11,7 @@
 -  import library
 
 ```
-import 'package:smssdk/smssdk.dart';
+import 'package:mob_smssdk/smssdk.dart';
 ```
 
 -  getTextCode
@@ -86,14 +86,9 @@ Smssdk.getFriends((dynamic ret, Map err){
 -  submitUserInfo
 
 ```
-Map userInfo = {
-                  "country":"区号",
-                  "phone":"您的手机号",
-                  "uid":"用户id",
-                  "nickname": "昵称",
-                  "avatar":"http://download.sdk.mob.com/510/deb/0c0731ac543eb71311c482a2e2.png",
-                  };
-Smssdk.submitUserInfo(userInfo,(dynamic ret, Map err){
+Smssdk.submitUserInfo("3241241", "SmsSDK_Flutter_User_3241241",
+              "http://download.sdk.mob.com/510/deb/0c0731ac543eb71311c482a2e2.png",
+                    "区号(中国填写86)", "手机号", (dynamic ret, Map err){
    if(err!=null)
    {
    }
