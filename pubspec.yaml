@@ -1,6 +1,6 @@
 name: mob_smssdk
 description: To provide developers with a global SMS verification code tool, developers can use this tool to insert the SMS verification code SDK in the app, and SMS verification can be achieved with simple Settings. Quick integration, and easy management in the later stage.中文官网:http://sms.mob.com
-version: 0.0.4
+version: 0.0.6
 author: mob <mobproducts@163.com>
 homepage: http://www.mob.com
 
