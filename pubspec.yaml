@@ -1,8 +1,8 @@
-name: smssdk
+name: mobsmssdk
 description: A new flutter plugin project.
 version: 0.0.1
-author:
-homepage:
+author: mobdata <mobproducts@163.com>
+homepage: http://www.mob.com
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

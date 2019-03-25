@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
-import 'package:smssdk/smssdk.dart' ;
+import 'package:mobsmssdk/smssdk.dart' ;
 
 void main() => runApp(MyApp());
 
