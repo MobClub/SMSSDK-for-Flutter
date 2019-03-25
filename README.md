@@ -11,5 +11,63 @@
 - 实现 "一、注册应用获取appKey 和 appSecret"
 - 实现 "三、配置appkey和appSecret"
 
-3.Android平台配置参考 [Android集成文档](http://wiki.mob.com/sdk-sms-android-3-0-0/)
+##Android平台集成
+####导入SMSSDK相关依赖
+1. 在项目根目录的build.gradle中添加以下代码：
+
+```
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        **classpath 'com.mob.sdk:MobSDK:+'**
+    }
+```
+
+2. 在app/build.gradle中添加以下代码：
+
+```
+apply plugin: 'com.android.application'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+// 导入MobSDK
+**apply plugin: 'com.mob.sdk'**
+```
+
+3. 在pubspec.yaml文件中添加smssdk flutter插件：
+
+```
+flutter:
+  # This section identifies this Flutter project as a plugin project.
+  # The androidPackage and pluginClass identifiers should not ordinarily
+  # be modified. They are used by the tooling to maintain consistency when
+  # adding or updating assets for this project.
+  plugin:
+    androidPackage: cn.smssdk.flutter
+    pluginClass: SmssdkPlugin
+```
+
+####添加代码
+1. 在MainActivity的onCreate中添加以下代码：
+
+```
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    GeneratedPluginRegistrant.registerWith(this);
+    // 注册SMSSDK Flutter插件
+    **SmssdkPlugin.registerWith(registrarFor(SmssdkPlugin.CHANNEL));**
+    // 初始化SMSSDK
+    **MobSDK.init(this, MOB_APPKEY, MOB_APPSECRET);**
+  }
+```
+
+2. 在MainActivity的onDestory中添加以下代码：
+
+```
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		// 执行回收操作
+		**SmssdkPlugin.recycle();**
+	}
+```
+
 
