@@ -1,7 +1,7 @@
-name: mobsmssdk
-description: A new flutter plugin project.
-version: 0.0.1
-author: mobdata <mobproducts@163.com>
+name: mob_smssdk
+description: SMSSDK is the most popular social SDK for apps and mobile games ! We've already supported over 1000 country or zone in global world until now.中文官网:http://sms.mob.com
+version: 0.0.2
+author: mob <mobproducts@163.com>
 homepage: http://www.mob.com
 
 environment:

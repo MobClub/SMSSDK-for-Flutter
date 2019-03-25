@@ -2,8 +2,8 @@
 
 **supported original MobLink minimum version:**
 
--  <font color=#00B2EE>iOS</font> - v3.0.0
--  <font color=#00B2EE>Android</font> - v3.0.0
+-  iOS - v3.0.0
+-  Android - v3.0.0
 
 ## Getting Started
 

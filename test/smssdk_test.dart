@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mobsmssdk/smssdk.dart';
+import 'package:mob_smssdk/smssdk.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('com.mob.smssdk');

@@ -11,8 +11,9 @@
 - 实现 "一、注册应用获取appKey 和 appSecret"
 - 实现 "三、配置appkey和appSecret"
 
-##Android平台集成
-####导入SMSSDK相关依赖
+3.Android平台集成
+
+######导入SMSSDK相关依赖
 1. 在项目根目录的build.gradle中添加以下代码：
 
 ```
@@ -44,7 +45,7 @@ flutter:
     pluginClass: SmssdkPlugin
 ```
 
-####添加代码
+######添加代码
 1. 在MainActivity的onCreate中添加以下代码：
 
 ```
