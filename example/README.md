@@ -1,6 +1,6 @@
 # smssdk_example
 
-**supported original MobLink minimum version:**
+**supported original mob_smssdk minimum version:**
 
 -  iOS - v3.0.0
 -  Android - v3.0.0
