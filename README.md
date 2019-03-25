@@ -13,7 +13,7 @@
 
 3.Android平台集成
 
-######导入SMSSDK相关依赖
+#####导入SMSSDK相关依赖
 1. 在项目根目录的build.gradle中添加以下代码：
 
 ```
@@ -23,7 +23,7 @@
     }
 ```
 
-2. 在app/build.gradle中添加以下代码：
+2. 在/android/app/build.gradle中添加以下代码：
 
 ```
 apply plugin: 'com.android.application'
@@ -32,18 +32,35 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 **apply plugin: 'com.mob.sdk'**
 ```
 
-3. 在pubspec.yaml文件中添加smssdk flutter插件：
+3. 在根路径下的pubspec.yaml文件中添加smssdk flutter插件：
 
 ```
-flutter:
-  # This section identifies this Flutter project as a plugin project.
-  # The androidPackage and pluginClass identifiers should not ordinarily
-  # be modified. They are used by the tooling to maintain consistency when
-  # adding or updating assets for this project.
-  plugin:
-    androidPackage: cn.smssdk.flutter
-    pluginClass: SmssdkPlugin
+dependencies:
+  mob_smssdk: ^0.0.2
 ```
+
+在你项目的Dart中添加以下代码：
+
+```
+ import 'package:mob_smssdk/smssdk.dart'
+```
+
+这样，就可以使用plugin中定义的dart api了。
+
+4. 平台相关集成
+在项目的/android/app/build.gradle中添加:
+
+```
+android {
+    // lines skipped
+    dependencies {
+        provided rootProject.findProject(":mob_smssdk")
+    }
+}
+```
+
+这样就可以在你的`project/android/src`下的类中`import cn.smssdk.flutter.SmssdkPlugin`并使用`SmssdkPlugin`中的api了。
+
 
 ######添加代码
 1. 在MainActivity的onCreate中添加以下代码：

@@ -63,6 +63,11 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    // 线上集成smssdk flutter插件时需要配置
+//    dependencies {
+//        provided rootProject.findProject(":mob_smssdk")
+//    }
 }
 
 flutter {
