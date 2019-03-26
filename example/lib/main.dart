@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
 
 import 'package:flutter/services.dart';
 import 'package:mobsms/mobsms.dart' ;
@@ -111,8 +109,11 @@ var codeController = new TextEditingController();
                   }
                   else
                   {
-
-                    showAlert("成功",context);
+                    String rst = ret.toString();
+                    if (rst == null || rst == "") {
+                      rst = '获取验证码成功!';
+                    }
+                    showAlert(rst,context);
                   }
                 });
                 

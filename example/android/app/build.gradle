@@ -23,6 +23,8 @@ if (flutterVersionName == null) {
 
 apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+// 导入MobSDK
+apply plugin: 'com.mob.sdk'
 
 android {
     compileSdkVersion 28
@@ -32,8 +34,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.mob.mobsms_example"
+        applicationId "cn.smssdk.demo"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
@@ -41,13 +42,32 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    signingConfigs{
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            storeFile file("demokey.keystore")
+            storePassword "123456"
+            keyAlias "demokey.keystore"
+            keyPassword "123456"
         }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    // 线上集成smssdk flutter插件时需要配置
+//    dependencies {
+//        provided rootProject.findProject(":mobsms")
+//    }
 }
 
 flutter {
