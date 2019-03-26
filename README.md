@@ -4,7 +4,7 @@
 
 ## 开始
 
-1.Flutter集成文档 [SMSSDK-For-Flutter 在线文档](https://pub.dartlang.org/packages/mob_smssdk#-installing-tab-)
+1.Flutter集成文档 [SMSSDK-For-Flutter 在线文档](https://pub.dartlang.org/packages/mobsms#-installing-tab-)
 
 2.iOS平台配置参考 [iOS集成文档](http://wiki.mob.com/快速集成-11/)
 

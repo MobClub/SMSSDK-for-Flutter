@@ -11,7 +11,7 @@
 -  import library
 
 ```
-import 'package:mob_smssdk/smssdk.dart';
+import 'package:mobsms/mobsms.dart';
 ```
 
 -  getTextCode
