@@ -36,13 +36,13 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 ```
 dependencies:
-  mob_smssdk: ^0.0.2
+  mobsms: ^0.0.3
 ```
 
 在你项目的Dart中添加以下代码：
 
 ```
- import 'package:mob_smssdk/smssdk.dart'
+ import 'package:mobsms/mobsms.dart'
 ```
 
 这样，就可以使用plugin中定义的dart api了。
@@ -54,7 +54,7 @@ dependencies:
 android {
     // lines skipped
     dependencies {
-        provided rootProject.findProject(":mob_smssdk")
+        provided rootProject.findProject(":mobsms")
     }
 }
 ```
