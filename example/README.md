@@ -31,7 +31,7 @@ Smssdk.getTextCode("手机号","区号(中国填写86)","模板id", (dynamic ret
 -  getVoiceCode
 
 ```
-Smssdk.getVoiceCode("手机号","区号(中国填写86)","模板id", (dynamic ret, Map err){
+Smssdk.getVoiceCode("手机号","区号(中国填写86)", (dynamic ret, Map err){
     if(err!=null)
     {
     }

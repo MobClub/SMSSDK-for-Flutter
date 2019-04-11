@@ -47,7 +47,7 @@ static FlutterMethodChannel* channel = nil;
   if ([@"getTextCode" isEqualToString:call.method]) {
     
       NSLog(@"%@", arguments);
-      [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:arguments[@"phoneNumber"] zone:arguments[@"zone"] template:nil result:^(NSError *error) {
+      [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:arguments[@"phoneNumber"] zone:arguments[@"zone"] template:arguments[@"tempCode"] result:^(NSError *error) {
           
          if(result)
          {
@@ -61,7 +61,7 @@ static FlutterMethodChannel* channel = nil;
       }];
   }else if ([@"getVoiceCode" isEqualToString:call.method]) {
     
-      [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodVoice phoneNumber:arguments[@"phoneNumber"] zone:arguments[@"zone"] template:nil result:^(NSError *error) {
+      [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodVoice phoneNumber:arguments[@"phoneNumber"] zone:arguments[@"zone"] template:arguments[@"tempCode"] result:^(NSError *error) {
           
          if(result)
          {

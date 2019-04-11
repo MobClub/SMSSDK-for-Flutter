@@ -36,7 +36,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 ```
 dependencies:
-  mobsms: ^0.0.3
+  mobsms: ^0.0.4
 ```
 
 在你项目的Dart中添加以下代码：
@@ -88,3 +88,14 @@ android {
 	}
 ```
 
+## 技术支持
+如有问题请联系技术支持:
+```
+服务电话:   400-685-2216     
+QQ:        4006852216
+节假日值班电话:
+    iOS：185-1664-1951
+Android: 185-1664-1950
+电子邮箱:   support@mob.com
+市场合作:   021-54623100
+```
