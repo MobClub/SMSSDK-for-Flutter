@@ -36,7 +36,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 ```
 dependencies:
-  mobsms: ^0.0.4
+  mobsms:
 ```
 
 在你项目的Dart中添加以下代码：
@@ -59,7 +59,7 @@ android {
 }
 ```
 
-这样就可以在你的`project/android/src`下的类中`import cn.smssdk.flutter.SmssdkPlugin`并使用`SmssdkPlugin`中的api了。
+这样就可以在你的`project/android/src`下的类中`import cn.smssdk.flutter.MobsmsPlugin`并使用`MobsmsPlugin`中的api了。
 
 
 ######添加代码
@@ -71,7 +71,7 @@ android {
     super.onCreate(savedInstanceState);
     GeneratedPluginRegistrant.registerWith(this);
     // 注册SMSSDK Flutter插件
-    **SmssdkPlugin.registerWith(registrarFor(SmssdkPlugin.CHANNEL));**
+    **MobsmsPlugin.registerWith(registrarFor(MobsmsPlugin.CHANNEL));**
     // 初始化SMSSDK
     **MobSDK.init(this, MOB_APPKEY, MOB_APPSECRET);**
   }
@@ -84,7 +84,7 @@ android {
 	protected void onDestroy() {
 		super.onDestroy();
 		// 执行回收操作
-		**SmssdkPlugin.recycle();**
+		**MobsmsPlugin.recycle();**
 	}
 ```
 

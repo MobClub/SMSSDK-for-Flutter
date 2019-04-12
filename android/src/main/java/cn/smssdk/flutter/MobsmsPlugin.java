@@ -18,9 +18,9 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
-/** SmssdkPlugin */
-public class SmssdkPlugin implements MethodCallHandler {
-	private static final String TAG = "SmssdkPlugin";
+/** MobsmsPlugin */
+public class MobsmsPlugin implements MethodCallHandler {
+	private static final String TAG = "MobsmsPlugin";
 	public static final String CHANNEL = "com.mob.smssdk";
 	private static final String KEY_CODE = "code";
 	private static final String KEY_MSG = "msg";
@@ -31,7 +31,7 @@ public class SmssdkPlugin implements MethodCallHandler {
   public static void registerWith(Registrar registrar) {
   	SMSSDKLog.d("registerWith() called");
     final MethodChannel channel = new MethodChannel(registrar.messenger(), CHANNEL);
-    channel.setMethodCallHandler(new SmssdkPlugin());
+    channel.setMethodCallHandler(new MobsmsPlugin());
   }
 
   @Override
