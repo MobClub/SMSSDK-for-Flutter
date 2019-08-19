@@ -1,5 +1,7 @@
 package cn.smssdk.flutter;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 
 import org.json.JSONException;
@@ -304,13 +306,18 @@ public class MobsmsPlugin implements MethodCallHandler {
   	SMSSDK.unregisterAllEventHandler();
   }
 
-  private void onSuccess(Result result, Map<String, Object> ret) {
-	  Map<String, Object> map = new HashMap<>();
+  private void onSuccess(final Result result, Map<String, Object> ret) {
+	  final Map<String, Object> map = new HashMap<>();
 	  map.put("ret", ret);
-	  result.success(map);
+	  new Handler(Looper.getMainLooper()).post(new Runnable() {
+		  @Override
+		  public void run() {
+			  result.success(map);
+		  }
+	  });
   }
 
-  private void onSdkError(Result result, String error) {
+  private void onSdkError(final Result result, String error) {
 	  try {
 		  JSONObject errorJson = new JSONObject(error);
 		  int code = errorJson.optInt("status");
@@ -323,9 +330,14 @@ public class MobsmsPlugin implements MethodCallHandler {
 		  errMap.put(KEY_CODE, code);
 		  errMap.put(KEY_MSG, msg);
 
-		  Map<String, Object> map = new HashMap<>();
+		  final Map<String, Object> map = new HashMap<>();
 		  map.put("err", errMap);
-		  result.success(map);
+		  new Handler(Looper.getMainLooper()).post(new Runnable() {
+			  @Override
+			  public void run() {
+				  result.success(map);
+			  }
+		  });
 	  } catch (JSONException e) {
 		  SMSSDKLog.e("Smssdk Flutter plugin internal error. msg= " + e.getMessage(), e);
 		  onInternalError(result,"Generate JSONObject error");
@@ -334,13 +346,18 @@ public class MobsmsPlugin implements MethodCallHandler {
 
   }
 
-	private void onInternalError(Result result, String errMsg) {
+	private void onInternalError(final Result result, String errMsg) {
 		Map<String, Object> errMap = new HashMap<>();
 		errMap.put(KEY_CODE, BRIDGE_ERR);
 		errMap.put(KEY_MSG, ERROR_INTERNAL + errMsg);
 
-		Map<String, Object> map = new HashMap<>();
+		final Map<String, Object> map = new HashMap<>();
 		map.put("err", errMap);
-		result.success(map);
+		new Handler(Looper.getMainLooper()).post(new Runnable() {
+			@Override
+			public void run() {
+				result.success(map);
+			}
+		});
 	}
 }
