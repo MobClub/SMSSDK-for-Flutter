@@ -3,7 +3,7 @@
 
 .packages
 .pub/
-
+.flutter-plugins-dependencies
 build/
 .idea/
 android/.idea/
