@@ -42,7 +42,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs{
+    signingConfigs {
         release {
             storeFile file("demokey.keystore")
             storePassword "123456"
@@ -78,4 +78,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+}
+MobSDK {
+    appKey ""
+    appSecret ""
 }
