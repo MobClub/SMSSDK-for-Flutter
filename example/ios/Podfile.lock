@@ -12,7 +12,7 @@ DEPENDENCIES:
   - mobsms (from `.symlinks/plugins/mobsms/ios`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - mob_smssdk
     - MOBFoundation
 
@@ -23,11 +23,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/mobsms/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   mob_smssdk: cdb6a31d4fd4667ed928e2eca03f21ad89ebc05c
   MOBFoundation: b5ff4038ddb9a0f06b685b86408f905a10aa147c
-  mobsms: 8c57a6c017be4b9fc4dc46294dfe85d0e78e4ab8
+  mobsms: 141956ad151a39a69a47a2ddf2e186405346c4ef
 
 PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1
