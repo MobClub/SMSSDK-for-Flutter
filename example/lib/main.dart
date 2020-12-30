@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
 import 'package:mobsms/mobsms.dart' ;
+import 'package:mobcommonlib/mobcommonlib.dart';
 
 void main() => runApp(MyApp());
 
@@ -58,6 +59,31 @@ var codeController = new TextEditingController();
                   )
                 ]));
   }
+
+void showPrivacyAlert(String text, BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+          title: new Text("隐私协议"),
+          content: new Text(text),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("同意"),
+              onPressed: () {
+                // 关闭弹框
+                Navigator.of(context).pop();
+                Mobcommonlib.submitPolicyGrantResult(true, (dynamic ret, Map err) => {});
+              },
+            ),
+            new FlatButton(
+              child: new Text("拒绝"),
+              onPressed: () {
+                Navigator.of(context).pop();
+                Mobcommonlib.submitPolicyGrantResult(false, (dynamic ret, Map err) => {});
+              },
+            )
+          ]));
+}
 
   Widget renderRow(i, BuildContext context){
     return new Column(
@@ -271,7 +297,17 @@ var codeController = new TextEditingController();
             },
           ),
           ),
-           
+          ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: double.infinity),
+            child: new FlatButton(
+              color: Colors.blueGrey,
+              textColor: Colors.white,
+              child: new Text('打开隐私协议弹框'),
+              onPressed: (){
+                showPrivacyAlert('是否同意隐私协议？',context);
+              },
+            ),
+          ),
         ],
       );
   }

@@ -3,10 +3,13 @@
 
 .packages
 .pub/
+example/.flutter-plugins-dependencies
+example/ios/Flutter/flutter_export_environment.sh
+**/pubspec.lock
 
 build/
 .idea/
-android/.idea/
-android/gradle/
-android/gradlew
-android/gradlew.bat
+**/.idea/
+**/gradle/
+**/gradlew
+**/gradlew.bat
