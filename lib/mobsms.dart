@@ -2,92 +2,65 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
+class Result {
+  String? ret;
+  dynamic? err;
+
+  Result([this.ret, this.err]);
+
+  static buildResult(Map<String, dynamic>? response) {
+    return Result(response!["ret"], response["err"]);
+  }
+}
+
 class Smssdk {
   static const MethodChannel _channel = const MethodChannel('com.mob.smssdk');
 
-  static Future getTextCode(String phoneNumber, String zone, String tempCode,
-      Function(dynamic ret, Map? err) result) {
+  static Future<Result> getTextCode(
+      String phoneNumber, String zone, String tempCode) async {
     Map args = {"phoneNumber": phoneNumber, "zone": zone, "tempCode": tempCode};
 
-    Future<dynamic> callback = _channel.invokeMethod('getTextCode', args);
-
-    callback.then((dynamic response) {
-      if (response is Map) {
-        result(response["ret"], response["err"]);
-      } else {
-        result(null, null);
-      }
-    });
-
-    return callback;
+    Map<String, dynamic>? response =
+        await _channel.invokeMethod<Map<String, dynamic>>('getTextCode', args);
+    return Result.buildResult(response);
   }
 
-  static Future getVoiceCode(
-      String phoneNumber, String zone, Function(dynamic ret, Map? err) result) {
+  static Future<Result> getVoiceCode(String phoneNumber, String zone) async {
     Map args = {"phoneNumber": phoneNumber, "zone": zone};
 
-    Future<dynamic> callback = _channel.invokeMethod('getVoiceCode', args);
-
-    callback.then((dynamic response) {
-      if (result != null) {
-        if (response is Map) {
-          result(response["ret"], response["err"]);
-        } else {
-          result(null, null);
-        }
-      }
-    });
-
-    return callback;
+    Map<String, dynamic>? response =
+        await _channel.invokeMethod<Map<String, dynamic>>('getVoiceCode', args);
+    return Result.buildResult(response);
   }
 
-  static Future commitCode(String phoneNumber, String zone, String code,
-      Function(dynamic ret, Map? err) result) {
+  static Future<Result> commitCode(
+    String phoneNumber,
+    String zone,
+    String code,
+  ) async {
     Map args = {"phoneNumber": phoneNumber, "zone": zone, "code": code};
 
-    Future<dynamic> callback = _channel.invokeMethod('commitCode', args);
-
-    callback.then((dynamic response) {
-      if (response is Map) {
-        result(response["ret"], response["err"]);
-      } else {
-        result(null, null);
-      }
-    });
-
-    return callback;
+    Map<String, dynamic>? response =
+        await _channel.invokeMethod<Map<String, dynamic>>('commitCode', args);
+    return Result.buildResult(response);
   }
 
-  static Future getSupportedCountries(Function(dynamic ret, Map? err) result) {
-    Future<dynamic> callback = _channel.invokeMethod('getSupportedCountries');
+  static Future<Result> getSupportedCountries() async {
+    Map<String, dynamic>? response = await _channel
+        .invokeMethod<Map<String, dynamic>>('getSupportedCountries');
 
-    callback.then((dynamic response) {
-      if (response is Map) {
-        result(response["ret"], response["err"]);
-      } else {
-        result(null, null);
-      }
-    });
-
-    return callback;
+    return Result.buildResult(response);
   }
 
-  static Future getFriends(Function(dynamic ret, Map? err) result) {
-    Future<dynamic> callback = _channel.invokeMethod('getFriends');
+  static Future<Result> getFriends() async {
+    Map<String, dynamic>? response =
+        await _channel.invokeMethod<Map<String, dynamic>>('getFriends');
 
-    callback.then((dynamic response) {
-      if (response is Map) {
-        result(response["ret"], response["err"]);
-      } else {
-        result(null, null);
-      }
-    });
-
-    return callback;
+    return Result.buildResult(response);
   }
 
-  static Future submitUserInfo(String uid, String nickname, String avatar,
-      String zone, String phoneNumber, Function(dynamic ret, Map? err) result) {
+  static Future<Result> submitUserInfo(String uid, String nickname,
+      String avatar, String zone, String phoneNumber) async {
     Map userInfo = {
       "country": zone,
       "phone": phoneNumber,
@@ -96,48 +69,23 @@ class Smssdk {
       "avatar": avatar
     };
 
-    Future<dynamic> callback =
-        _channel.invokeMethod('submitUserInfo', userInfo);
-
-    callback.then((dynamic response) {
-      if (response is Map) {
-        result(response["ret"], response["err"]);
-      } else {
-        result(null, null);
-      }
-    });
-
-    return callback;
+    Map<String, dynamic>? response = await _channel
+        .invokeMethod<Map<String, dynamic>>('submitUserInfo', userInfo);
+    return Result.buildResult(response);
   }
 
-  static Future getVersion(Function(dynamic ret, Map? err) result) {
-    Future<dynamic> callback = _channel.invokeMethod('getVersion');
-
-    callback.then((dynamic response) {
-      if (response is Map) {
-        result(response["ret"], response["err"]);
-      } else {
-        result(null, null);
-      }
-    });
-
-    return callback;
+  static Future<Result> getVersion() async {
+    Map<String, dynamic>? response =
+        await _channel.invokeMethod<Map<String, dynamic>>('getVersion');
+    return Result.buildResult(response);
   }
 
-  static Future enableWarn(
-      bool enableWarn, Function(dynamic ret, Map? err) result) {
+  static Future<Result> enableWarn(bool enableWarn) async {
     Map args = {"isWarn": enableWarn};
 
-    Future<dynamic> callback = _channel.invokeMethod('enableWarn', args);
+    Map<String, dynamic>? response =
+        await _channel.invokeMethod<Map<String, dynamic>>('enableWarn', args);
 
-    callback.then((dynamic response) {
-      if (response is Map) {
-        result(response["ret"], response["err"]);
-      } else {
-        result(null, null);
-      }
-    });
-
-    return callback;
+    return Result.buildResult(response);
   }
 }
