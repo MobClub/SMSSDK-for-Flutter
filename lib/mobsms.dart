@@ -8,7 +8,7 @@ class Result {
 
   Result([this.ret, this.err]);
 
-  static buildResult(Map<String, dynamic>? response) {
+  static buildResult(Map<dynamic, dynamic>? response) {
     return Result(response!["ret"], response["err"]);
   }
 }
@@ -20,16 +20,16 @@ class Smssdk {
       String phoneNumber, String zone, String tempCode) async {
     Map args = {"phoneNumber": phoneNumber, "zone": zone, "tempCode": tempCode};
 
-    Map<String, dynamic>? response =
-        await _channel.invokeMethod<Map<String, dynamic>>('getTextCode', args);
+    Map<dynamic, dynamic>? response =
+    await _channel.invokeMethod<Map<dynamic, dynamic>>('getTextCode', args);
     return Result.buildResult(response);
   }
 
   static Future<Result> getVoiceCode(String phoneNumber, String zone) async {
     Map args = {"phoneNumber": phoneNumber, "zone": zone};
 
-    Map<String, dynamic>? response =
-        await _channel.invokeMethod<Map<String, dynamic>>('getVoiceCode', args);
+    Map<dynamic, dynamic>? response =
+    await _channel.invokeMethod<Map<dynamic, dynamic>>('getVoiceCode', args);
     return Result.buildResult(response);
   }
 
@@ -40,21 +40,21 @@ class Smssdk {
   ) async {
     Map args = {"phoneNumber": phoneNumber, "zone": zone, "code": code};
 
-    Map<String, dynamic>? response =
-        await _channel.invokeMethod<Map<String, dynamic>>('commitCode', args);
+    Map<dynamic, dynamic>? response =
+    await _channel.invokeMethod<Map<dynamic, dynamic>>('commitCode', args);
     return Result.buildResult(response);
   }
 
   static Future<Result> getSupportedCountries() async {
-    Map<String, dynamic>? response = await _channel
-        .invokeMethod<Map<String, dynamic>>('getSupportedCountries');
+    Map<dynamic, dynamic>? response = await _channel
+        .invokeMethod<Map<dynamic, dynamic>>('getSupportedCountries');
 
     return Result.buildResult(response);
   }
 
   static Future<Result> getFriends() async {
-    Map<String, dynamic>? response =
-        await _channel.invokeMethod<Map<String, dynamic>>('getFriends');
+    Map<dynamic, dynamic>? response =
+    await _channel.invokeMethod<Map<dynamic, dynamic>>('getFriends');
 
     return Result.buildResult(response);
   }
@@ -69,22 +69,22 @@ class Smssdk {
       "avatar": avatar
     };
 
-    Map<String, dynamic>? response = await _channel
-        .invokeMethod<Map<String, dynamic>>('submitUserInfo', userInfo);
+    Map<dynamic, dynamic>? response = await _channel
+        .invokeMethod<Map<dynamic, dynamic>>('submitUserInfo', userInfo);
     return Result.buildResult(response);
   }
 
   static Future<Result> getVersion() async {
-    Map<String, dynamic>? response =
-        await _channel.invokeMethod<Map<String, dynamic>>('getVersion');
+    Map<dynamic, dynamic>? response =
+    await _channel.invokeMethod<Map<dynamic, dynamic>>('getVersion');
     return Result.buildResult(response);
   }
 
   static Future<Result> enableWarn(bool enableWarn) async {
     Map args = {"isWarn": enableWarn};
 
-    Map<String, dynamic>? response =
-        await _channel.invokeMethod<Map<String, dynamic>>('enableWarn', args);
+    Map<dynamic, dynamic>? response =
+    await _channel.invokeMethod<Map<dynamic, dynamic>>('enableWarn', args);
 
     return Result.buildResult(response);
   }
