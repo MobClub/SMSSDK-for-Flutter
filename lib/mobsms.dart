@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 class Result {
-  String? ret;
+  dynamic? ret;
   dynamic? err;
 
   Result([this.ret, this.err]);
