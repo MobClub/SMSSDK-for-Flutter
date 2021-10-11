@@ -1,11 +1,11 @@
 name: mobsms
 description: To provide developers with a global SMS verification code tool, developers can use this tool to insert the SMS verification code SDK in the app, and SMS verification can be achieved with simple Settings. Quick integration, and easy management in the later stage.
-version: 1.1.2
+version: 1.1.4
 homepage: http://www.mob.com
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
-  flutter: ">=1.10.0"
+  sdk: ">=2.12.0 <3.0.0" #迁移至空安全版本
+  flutter: ">=1.12.13+hotfix.6"
 
 dependencies:
   flutter:

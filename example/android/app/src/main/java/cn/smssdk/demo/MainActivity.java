@@ -2,10 +2,13 @@ package cn.smssdk.demo;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+
 import com.mob.MobSDK;
 
 import cn.smssdk.flutter.MobsmsPlugin;
-import io.flutter.app.FlutterActivity;
+import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
 public class MainActivity extends FlutterActivity {
@@ -16,12 +19,15 @@ public class MainActivity extends FlutterActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    GeneratedPluginRegistrant.registerWith(this);
-    // 注册SMSSDK Flutter插件
-    MobsmsPlugin.registerWith(registrarFor(MobsmsPlugin.CHANNEL));
     // 初始化SMSSDK
 	MobSDK.init(this, MOB_APPKEY, MOB_APPSECRET);
   }
+
+	@Override
+	public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+		GeneratedPluginRegistrant.registerWith(flutterEngine);
+		super.configureFlutterEngine(flutterEngine);
+	}
 
 	@Override
 	protected void onDestroy() {

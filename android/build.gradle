@@ -37,5 +37,7 @@ android {
 
 // 导入SMSSDK
 MobSDK {
-    SMSSDK {}
+    SMSSDK {
+        mobileAuth true
+    }
 }

@@ -26,6 +26,11 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 // 导入MobSDK
 apply plugin: 'com.mob.sdk'
 
+MobSDK {
+    spEdition "fp"
+}
+
+
 android {
     compileSdkVersion 28
 
@@ -52,6 +57,7 @@ android {
     }
 
     buildTypes {
+
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
