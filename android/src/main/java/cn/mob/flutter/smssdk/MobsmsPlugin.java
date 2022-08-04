@@ -1,9 +1,12 @@
-package cn.smssdk.flutter;
+package cn.mob.flutter.smssdk;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.mob.MobSDK;
+
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
@@ -13,14 +16,19 @@ import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 import cn.smssdk.utils.SPHelper;
 import cn.smssdk.wrapper.TokenVerifyResult;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+import android.src.main.java.cn.mob.flutter.smssdk.impl.SMSSDKLog;
+
+import androidx.annotation.NonNull;
 
 /** MobsmsPlugin */
-public class MobsmsPlugin implements MethodCallHandler {
+public class MobsmsPlugin implements FlutterPlugin, MethodCallHandler {
 	private static final String TAG = "MobsmsPlugin";
 	public static final String CHANNEL = "com.mob.smssdk";
 	private static final String KEY_CODE = "code";
@@ -28,12 +36,17 @@ public class MobsmsPlugin implements MethodCallHandler {
 	private static final int BRIDGE_ERR = 700;
 	private static final String ERROR_INTERNAL = "Flutter bridge internal error: ";
 	private TokenVerifyResult tokenVerifyResult;
+	private MethodChannel methodChannel;
+
+	public MobsmsPlugin(){
+		MobSDK.setChannel(new com.mob.commons.SMSSDK(),MobSDK.CHANNEL_FLUTTER);
+	}
 
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
-  	SMSSDKLog.d("registerWith() called");
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), CHANNEL);
-    channel.setMethodCallHandler(new MobsmsPlugin());
+	  SMSSDKLog.d("registerWith() called");
+	  final MobsmsPlugin instance = new MobsmsPlugin();
+	  instance.onAttachedToEngine(registrar.context(), registrar.messenger());
   }
 
   @Override
@@ -467,4 +480,18 @@ public class MobsmsPlugin implements MethodCallHandler {
 		});
 	}
 
+	@Override
+	public void onAttachedToEngine(@NonNull @NotNull FlutterPluginBinding binding) {
+		onAttachedToEngine(binding.getApplicationContext(),binding.getBinaryMessenger());
+	}
+
+	@Override
+	public void onDetachedFromEngine(@NonNull @NotNull FlutterPluginBinding binding) {
+
+	}
+
+	private void onAttachedToEngine(Context applicationContext, BinaryMessenger messenger){
+		methodChannel = new MethodChannel(messenger, CHANNEL);
+		methodChannel.setMethodCallHandler(this);
+	}
 }

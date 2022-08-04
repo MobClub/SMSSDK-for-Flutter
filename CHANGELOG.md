@@ -1,3 +1,6 @@
+## 1.1.6
+*Delete useless configuration
+
 ## 1.1.4
 
 增加空安全验证

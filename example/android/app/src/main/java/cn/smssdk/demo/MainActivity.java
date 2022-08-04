@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.mob.MobSDK;
 
-import cn.smssdk.flutter.MobsmsPlugin;
+import cn.mob.flutter.smssdk.MobsmsPlugin;
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.GeneratedPluginRegistrant;
@@ -20,7 +20,8 @@ public class MainActivity extends FlutterActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // 初始化SMSSDK
-	MobSDK.init(this, MOB_APPKEY, MOB_APPSECRET);
+		MobSDK.init(this, MOB_APPKEY, MOB_APPSECRET);
+		MobSDK.submitPolicyGrantResult(true);
   }
 
 	@Override

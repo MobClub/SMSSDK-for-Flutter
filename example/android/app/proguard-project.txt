@@ -1,0 +1,16 @@
+-ignorewarnings
+-dontoptimize
+-keepattributes SourceFile,LineNumberTable,Exceptions,InnerClasses,EnclosingMethod,Signature,*Annotation*
+
+# for SMSSDK
+-keep class cn.smssdk.**{*;}
+
+-keep class com.mob.**{*;}
+# for CTCC
+-keep class cn.com.chinatelecom.account.**{*;}
+# for CUCC
+-keep class com.sdk.**{*;}
+#for xiaowo
+-keep class com.unicom.xiaowo.account.shield.**{*;}
+# for CMCC
+-keep class com.cmic.sso.sdk.**{*;}

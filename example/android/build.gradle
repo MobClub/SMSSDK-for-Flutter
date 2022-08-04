@@ -3,12 +3,12 @@ buildscript {
         google()
         jcenter()
         maven{
-            url 'http://mvn.mob.com/android'
+            url 'https://mvn.mob.com/android'
         }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'com.android.tools.build:gradle:3.5.2'
         classpath 'com.mob.sdk:MobSDK:+'
     }
 }
@@ -18,7 +18,7 @@ allprojects {
         google()
         jcenter()
         maven{
-            url 'http://mvn.mob.com/android'
+            url 'https://mvn.mob.com/android'
         }
     }
 }
