@@ -1,0 +1,43 @@
+PODS:
+  - e2e (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - mob_plat (1.0.0)
+  - mob_smssdk (3.3.2):
+    - MOBFoundation
+  - MOBFoundation (3.2.36)
+  - mobsms (0.0.1):
+    - Flutter
+    - mob_plat
+    - mob_smssdk
+
+DEPENDENCIES:
+  - e2e (from `.symlinks/plugins/e2e/ios`)
+  - Flutter (from `Flutter`)
+  - mobsms (from `.symlinks/plugins/mobsms/ios`)
+
+SPEC REPOS:
+  trunk:
+    - mob_plat
+    - mob_smssdk
+    - MOBFoundation
+
+EXTERNAL SOURCES:
+  e2e:
+    :path: ".symlinks/plugins/e2e/ios"
+  Flutter:
+    :path: Flutter
+  mobsms:
+    :path: ".symlinks/plugins/mobsms/ios"
+
+SPEC CHECKSUMS:
+  e2e: d0c9f8c832b4cc7ab386d0c0f0af67fe5ac0c3bd
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  mob_plat: 75cbe6282b8e75cebff3adb2f730d1056457854b
+  mob_smssdk: 7dd38a9087980f9dfd74b9b25d87db36b38496c7
+  MOBFoundation: 78ad4264f436b3d147375ab7fdb8088b9e22ca5d
+  mobsms: 3644d3e13f4aca284f8505bf20b260440a88f56c
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.11.3

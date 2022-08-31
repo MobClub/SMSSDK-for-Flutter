@@ -1,0 +1,5 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.mob.flutter.smssdk">
+	<!-- 指定name，防止MobSDK自动将这里的name设置为MobApplication，导致example的name和该name冲突，开发者的example就需要设置android:replace="name"来解决 -->
+	<application/>
+</manifest>

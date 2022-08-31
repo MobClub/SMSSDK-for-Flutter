@@ -1,0 +1,27 @@
+name: mobsms
+description: To provide developers with a global SMS verification code tool, developers can use this tool to insert the SMS verification code SDK in the app, and SMS verification can be achieved with simple Settings. Quick integration, and easy management in the later stage.
+version: 1.1.7
+homepage: http://www.mob.com
+
+environment:
+  sdk: ">=2.12.0 <3.0.0" #迁移至空安全版本
+  flutter: ">=1.12.13+hotfix.6"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # 默认添加公共库的依赖，开发者不需要单独配置
+#  mobcommonlib: ^1.0.1  # 指定最低版本，不填也可
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.mob.flutter.smssdk
+        pluginClass: MobsmsPlugin
+      ios:
+        pluginClass: MobsmsPlugin
