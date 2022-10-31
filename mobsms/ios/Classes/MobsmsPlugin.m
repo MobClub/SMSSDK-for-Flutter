@@ -1,5 +1,6 @@
 #import "MobsmsPlugin.h"
 #import <SMS_SDK/SMSSDK.h>
+#import <MobFoundation/MobFoundation.h>
 #import <SMS_SDK/SMSSDKAuthToken.h>
 #import <SMS_SDK/SMSSDK+ContactFriends.h>
 
@@ -200,6 +201,17 @@ static SMSSDKAuthToken *authToken = nil;
             }
             
             result([mDict copy]);
+        }];
+    } else if ([@"uploadPrivacyStatus" isEqualToString:call.method]) {
+        NSLog(@"%@", arguments);
+        BOOL status = NO;
+        if ([[arguments allKeys] containsObject:@"status"]
+            || [[arguments objectForKey:@"status"] respondsToSelector:@selector(boolValue)]) {
+            status = [[arguments objectForKey:@"status"] boolValue];
+        }
+
+        [MobSDK uploadPrivacyPermissionStatus:status onResult:^(BOOL success) {
+            result(@{@"success": @(success)});
         }];
     } else {
         result(FlutterMethodNotImplemented);

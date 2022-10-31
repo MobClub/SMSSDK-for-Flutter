@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'mobsms'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'SMSSDK Plugin Project.'
   s.description      = <<-DESC
 The smssdk fundation project.
@@ -15,7 +15,7 @@ The smssdk fundation project.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'mob_smssdk'
+  s.dependency 'mob_smssdk_spec2'
   s.dependency 'mob_plat'
   s.static_framework = true
   s.ios.deployment_target = '8.0'
