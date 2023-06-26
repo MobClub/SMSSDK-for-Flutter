@@ -15,7 +15,7 @@ The smssdk fundation project.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'mob_smssdk_spec2'
+  s.dependency 'mob_smssdk'
   s.dependency 'mob_plat'
   s.static_framework = true
   s.ios.deployment_target = '8.0'
