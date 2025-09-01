@@ -22,7 +22,6 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 import android.src.main.java.com.mob.flutter.smssdk.impl.SMSSDKLog;
 
 import androidx.annotation.NonNull;
@@ -47,12 +46,6 @@ public class MobsmsPlugin implements FlutterPlugin, MethodCallHandler {
 		}).start();
 	}
 
-  /** Plugin registration. */
-  public static void registerWith(Registrar registrar) {
-	  SMSSDKLog.d("registerWith() called");
-	  final MobsmsPlugin instance = new MobsmsPlugin();
-	  instance.onAttachedToEngine(registrar.context(), registrar.messenger());
-  }
 
   @Override
   public void onMethodCall(MethodCall call, final Result rst) {
@@ -491,7 +484,8 @@ public class MobsmsPlugin implements FlutterPlugin, MethodCallHandler {
 
 	@Override
 	public void onDetachedFromEngine(@NonNull @NotNull FlutterPluginBinding binding) {
-
+		methodChannel.setMethodCallHandler(null);
+        methodChannel = null;
 	}
 
 	private void onAttachedToEngine(Context applicationContext, BinaryMessenger messenger){
