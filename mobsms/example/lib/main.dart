@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:mobsms/mobsms.dart';
@@ -223,54 +224,56 @@ class _MyAppState extends State<MyApp> {
             },
           ),
         ),
-        ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: double.infinity),
-          child: new TextButton(
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith((states) {
-              if (states.contains(MaterialState.pressed)) {
-                return Colors.blueGrey[700];
-              }
-              return Colors.blueGrey;
-            }), foregroundColor: MaterialStateProperty.resolveWith((states) {
-              return Colors.white;
-            })),
-            child: new Text('本机号码获取token'),
-            onPressed: () {
-              Smssdk.getToken((dynamic ret, Map? err) {
-                if (err != null) {
-                  showAlert(err.toString(), context);
-                } else {
-                  showAlert(ret.toString(), context);
+        if (Platform.isIOS)
+          ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: double.infinity),
+            child: new TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith((states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return Colors.blueGrey[700];
                 }
-              });
-            },
+                return Colors.blueGrey;
+              }), foregroundColor: MaterialStateProperty.resolveWith((states) {
+                return Colors.white;
+              })),
+              child: new Text('本机号码获取token'),
+              onPressed: () {
+                Smssdk.getToken((dynamic ret, Map? err) {
+                  if (err != null) {
+                    showAlert(err.toString(), context);
+                  } else {
+                    showAlert(ret.toString(), context);
+                  }
+                });
+              },
+            ),
           ),
-        ),
-        ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: double.infinity),
-          child: new TextButton(
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith((states) {
-              if (states.contains(MaterialState.pressed)) {
-                return Colors.blueGrey[700];
-              }
-              return Colors.blueGrey;
-            }), foregroundColor: MaterialStateProperty.resolveWith((states) {
-              return Colors.white;
-            })),
-            child: new Text('登陆'),
-            onPressed: () {
-              Smssdk.login(phoneController.text, (dynamic ret, Map? err) {
-                if (err != null) {
-                  showAlert(err.toString(), context);
-                } else {
-                  showAlert(ret.toString(), context);
+        if (Platform.isIOS)
+          ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: double.infinity),
+            child: new TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith((states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return Colors.blueGrey[700];
                 }
-              });
-            },
+                return Colors.blueGrey;
+              }), foregroundColor: MaterialStateProperty.resolveWith((states) {
+                return Colors.white;
+              })),
+              child: new Text('登陆'),
+              onPressed: () {
+                Smssdk.login(phoneController.text, (dynamic ret, Map? err) {
+                  if (err != null) {
+                    showAlert(err.toString(), context);
+                  } else {
+                    showAlert(ret.toString(), context);
+                  }
+                });
+              },
+            ),
           ),
-        ),
         ConstrainedBox(
           constraints: const BoxConstraints(minWidth: double.infinity),
           child: new TextButton(

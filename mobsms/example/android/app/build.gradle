@@ -35,7 +35,7 @@ android {
             storePassword "123456"
             keyAlias "demokey.keystore"
             keyPassword "123456"
-        
+         }
 
     }
 
